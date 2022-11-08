@@ -1,12 +1,12 @@
 <template>
   <q-layout view="hHh lpR fFf" class="bg-layout">
     <q-header :class="shallTransparent">
-      <q-toolbar class="text-white q-mx-lg" style="height: 110px">
+      <q-toolbar class="text-white">
         <div class="row justify-between no-wrap col-12">
           <div class="col-2">
             
           </div>
-          <div class="row justify-center col items-center gt-sm">
+          <div class="row justify-center col-auto items-center gt-sm">
             <router-link
               to="/search"
               class="text-white q-mx-lg"
@@ -48,7 +48,7 @@
               >{{ t("message.nav3") }}</a
             >
           </div>
-          <div class="col-3 row justify-round items-center">
+          <div class="col-auto row justify-round items-center">
             <SelectLanuage class="gt-sm" />
             <q-btn
               class="tc-4 q-px-md"
