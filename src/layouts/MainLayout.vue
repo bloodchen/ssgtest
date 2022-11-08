@@ -60,7 +60,7 @@
               unelevated
               dense
               flat
-              icon="wallet"
+              :icon="matWallet"
               @click="tools.dpay.connect({ appid: 'www.nbdomain.com' })"
             />
             <div v-if="!$q.platform.is.mobile">
@@ -69,7 +69,7 @@
                 no-caps
                 class="q-px-md bg-primary"
                 text-color="tc-2"
-                icon="perm_identity"
+                :icon="matPermIdentity"
                 :label="t('message.login')"
                 @click="$router.push('detail')"
                 v-if="!currentDomain?.domain"
@@ -81,7 +81,7 @@
                 unelevated
                 dense
                 flat
-                icon="perm_identity"
+                :icon="matPermIdentity"
                 @click="$router.push('detail')"
                 :label="currentDomain.domain"
                 v-else
@@ -93,7 +93,7 @@
                 @click="leftDrawer = !leftDrawer"
                 round
                 dense
-                icon="menu"
+                :icon="matMenu"
               />
             </div>
           </div>
@@ -142,7 +142,7 @@
             no-caps
             class="q-ml-md q-px-md q-mt-md bg-primary"
             text-color="tc-2"
-            icon="perm_identity"
+            :icon="matPermIdentity"
             :label="t('message.login')"
             @click="$router.push('detail')"
             v-if="!currentDomain?.domain"
@@ -153,7 +153,7 @@
             unelevated
             dense
             flat
-            icon="perm_identity"
+            :icon="matPermIdentity"
             @click="$router.push('detail')"
             :label="currentDomain.domain"
             v-else
@@ -179,6 +179,16 @@ import { useRouter, useRoute } from "vue-router";
 import { tools } from "../utils/tools";
 import { useQuasar } from "quasar";
 import { onMounted } from "vue";
+import {
+  matMenu,
+  matWallet,
+  matPermIdentity,
+  matShoppingBasket,
+  matFace,
+  matAttachMoney,
+  matHelp,
+  matForum,
+} from "@quasar/extras/material-icons";
 
 //const { t } = useI18n();
 const route = useRoute();
@@ -190,28 +200,28 @@ const link = "home";
 const hello = ref(false)
 const menuList = [
   {
-    icon: "shopping_basket",
+    icon: matShoppingBasket,
     label: "message.searchDomain",
     to: "/search",
   },
   {
-    icon: "face",
+    icon: matFace,
     label: "message.myDomain",
     to: "/detail",
     // separator: true
   },
   {
-    icon: "attach_money",
+    icon: matAttachMoney,
     label: "message.freeDomain",
     to: "/free",
   },
   {
-    icon: "help",
+    icon: matHelp,
     label: "message.help",
     url: "https://doc.nbdomain.com/",
   },
   {
-    icon: "forum",
+    icon: matForum,
     label: "message.community",
     url: "https://discord.gg/EZPUsgFR",
   },

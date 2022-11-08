@@ -35,7 +35,7 @@
             >
               <template v-slot:after>
                 <q-btn
-                  icon="search"
+                  :icon="matSearch"
                   class="bg-primary tc-2"
                   size="lg"
                   @click="submitSearch"
@@ -50,7 +50,7 @@
             style="white-space: nowrap; overflow: hidden"
           >
             <span class="text-white q-my-sm">
-              <q-icon name="flash_on" />
+              <q-icon :name="matFlashOn" />
               {{ t("message.newdomain") }}:
             </span>
             <span
@@ -182,7 +182,7 @@ import { useQuasar } from "quasar";
 import { tools } from "../utils/tools";
 import { useRouter, useRoute } from "vue-router";
 import { onMounted } from "vue";
-const isMobile = useQuasar().platform.is.mobile;
+import { matSearch, matFlashOn } from "@quasar/extras/material-icons";
 const queryNid = ref("");
 let new_domains = ref([]);
 let router = useRouter();
