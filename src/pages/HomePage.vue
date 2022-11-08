@@ -9,22 +9,13 @@
         style="margin-top: 200px; margin-bottom: 200px"
       >
         <div class="col-11 col-sm-11 col-md-8">
-          <div
-            :class="` ${
-              isMobile ? 'font-t26' : 'font-t40'
-            } text-weight-bold text-center`"
-          >
+          <div class="slogan text-weight-bold text-center">
             {{ t("message.slogan") }}
           </div>
           <div class="font-t16 text-center text-grey-5 q-mt-sm">
             {{ t("message.slogan1") }}
           </div>
-          <q-form
-            @submit="submitSearch"
-            :style="{
-              marginTop: isMobile ? '32px' : '40px',
-            }"
-          >
+          <q-form @submit="submitSearch" class="search">
             <q-input
               outlined
               v-model="queryNid"
@@ -204,4 +195,18 @@ function submitSearch() {
   router.push("/search?nid=" + queryNid.value);
 }
 </script>
+<style lang="scss">
+.slogan {
+  font-size: 40px;
+  @media (max-width: $breakpoint-sm-max) {
+    font-size: 26px;
+  }
+}
 
+.search {
+  margin-top: 40px;
+  @media (max-width: $breakpoint-sm-max) {
+    margin-top: 32px;
+  }
+}
+</style>

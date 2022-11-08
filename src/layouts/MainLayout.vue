@@ -6,10 +6,7 @@
           <div class="col-2">
             
           </div>
-          <div
-            class="row justify-center col items-center"
-            v-if="!$q.platform.is.mobile"
-          >
+          <div class="row justify-center col items-center gt-sm">
             <router-link
               to="/search"
               class="text-white q-mx-lg"
@@ -52,7 +49,7 @@
             >
           </div>
           <div class="col-3 row justify-round items-center">
-            <SelectLanuage v-if="!$q.platform.is.mobile" />
+            <SelectLanuage class="gt-sm" />
             <q-btn
               class="tc-4 q-px-md"
               text-color="tc-2"
@@ -63,7 +60,7 @@
               :icon="matWallet"
               @click="tools.dpay.connect({ appid: 'www.nbdomain.com' })"
             />
-            <div v-if="!$q.platform.is.mobile">
+            <div class="gt-sm">
               <q-btn
                 dense
                 no-caps
@@ -87,7 +84,7 @@
                 v-else
               />
             </div>
-            <div v-if="$q.platform.is.mobile">
+            <div class="lt-md">
               <q-btn
                 flat
                 @click="leftDrawer = !leftDrawer"
