@@ -2,29 +2,25 @@
   <q-page>
     <div
       class="row justify-center no-wrap text-white bg-image"
-      style="width: 100%; margin-top: -110px; background: url('bg1.png')"
+      style="
+        width: 100%;
+        margin-top: -110px;
+        background-color: black;
+        background-image: url('bg1.png');
+      "
     >
       <div
         class="row col-12 col-sm-12 col-md-12 justify-center"
         style="margin-top: 200px; margin-bottom: 200px"
       >
         <div class="col-11 col-sm-11 col-md-8">
-          <div
-            :class="` ${
-              isMobile ? 'font-t26' : 'font-t40'
-            } text-weight-bold text-center`"
-          >
+          <div class="slogan text-weight-bold text-center">
             {{ t("message.slogan") }}
           </div>
           <div class="font-t16 text-center text-grey-5 q-mt-sm">
             {{ t("message.slogan1") }}
           </div>
-          <q-form
-            @submit="submitSearch"
-            :style="{
-              marginTop: isMobile ? '32px' : '40px',
-            }"
-          >
+          <q-form @submit="submitSearch" class="search">
             <q-input
               outlined
               v-model="queryNid"
@@ -35,7 +31,7 @@
             >
               <template v-slot:after>
                 <q-btn
-                  icon="search"
+                  :icon="matSearch"
                   class="bg-primary tc-2"
                   size="lg"
                   @click="submitSearch"
@@ -50,7 +46,7 @@
             style="white-space: nowrap; overflow: hidden"
           >
             <span class="text-white q-my-sm">
-              <q-icon name="flash_on" />
+              <q-icon :name="matFlashOn" />
               {{ t("message.newdomain") }}:
             </span>
             <span
@@ -182,7 +178,7 @@ import { useQuasar } from "quasar";
 import { tools } from "../utils/tools";
 import { useRouter, useRoute } from "vue-router";
 import { onMounted } from "vue";
-const isMobile = useQuasar().platform.is.mobile;
+import { matSearch, matFlashOn } from "@quasar/extras/material-icons";
 const queryNid = ref("");
 let new_domains = ref([]);
 let router = useRouter();
@@ -204,4 +200,18 @@ function submitSearch() {
   router.push("/search?nid=" + queryNid.value);
 }
 </script>
+<style lang="scss">
+.slogan {
+  font-size: 40px;
+  @media (max-width: $breakpoint-sm-max) {
+    font-size: 26px;
+  }
+}
 
+.search {
+  margin-top: 40px;
+  @media (max-width: $breakpoint-sm-max) {
+    margin-top: 32px;
+  }
+}
+</style>
