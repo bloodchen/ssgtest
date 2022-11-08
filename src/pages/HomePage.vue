@@ -2,7 +2,12 @@
   <q-page>
     <div
       class="row justify-center no-wrap text-white bg-image"
-      style="width: 100%; margin-top: -110px; background: url('bg1.png')"
+      style="
+        width: 100%;
+        margin-top: -110px;
+        background-color: black;
+        background-image: url('bg1.png');
+      "
     >
       <div
         class="row col-12 col-sm-12 col-md-12 justify-center"
